@@ -87,13 +87,14 @@ def parse_arguments():
     return args
 
 selfdir = os.path.abspath(os.path.dirname(__file__))
+curdir  = os.getcwd()
 
 args = parse_arguments()
 
 resize_rate = args.rate
 max_width   = args.max_width
 max_height  = args.max_height
-infiles     = [os.path.join(selfdir,infilename) for infilename in args.infiles]
+infiles     = [os.path.join(curdir,infilename) for infilename in args.infiles]
 
 if len(infiles)==0:
     abort('No filename given.')
